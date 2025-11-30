@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "title": "Annual General Meeting (AGM)",
+        "content": "The AGM will be held at the Community Hall at 10:00 AM. Agenda attached.",
+        "date": "2023-12-15",
+        "category": "Urgent"
+    },
+    {
+        "id": "2",
+        "title": "Swimming Pool Maintenance",
+        "content": "Pool will be closed for cleaning on Tuesday.",
+        "date": "2023-12-02",
+        "category": "Info"
+    },
+    {
+        "id": "3",
+        "title": "Diwali Celebration",
+        "content": "Join us for the Diwali celebration on the main lawn.",
+        "date": "2023-11-12",
+        "category": "Event"
+    }
+]

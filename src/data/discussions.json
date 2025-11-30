@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "authorId": "user_123",
+        "authorName": "Rahul Sharma",
+        "title": "Diwali Celebration Planning",
+        "content": "Let's start planning for the upcoming Diwali party. Any suggestions for the venue?",
+        "date": "2023-10-15",
+        "replies": [
+            {
+                "authorName": "Priya Singh",
+                "content": "How about the community hall?",
+                "date": "2023-10-15"
+            }
+        ]
+    }
+]

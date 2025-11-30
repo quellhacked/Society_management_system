@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "question": "Should we upgrade the gym equipment?",
+    "options": [
+      {
+        "text": "Yes",
+        "votes": 12
+      },
+      {
+        "text": "No",
+        "votes": 4
+      }
+    ],
+    "status": "Active",
+    "date": "2023-10-28"
+  }
+]

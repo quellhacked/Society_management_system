@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "title": "Water Supply Interruption",
+    "message": "Water supply will be cut off tomorrow from 10 AM to 2 PM for maintenance.",
+    "severity": "Warning",
+    "date": "2023-10-20",
+    "sentBy": "Admin"
+  },
+  {
+    "title": "Water Leakage",
+    "message": "sjnfkjsn",
+    "severity": "Critical",
+    "sentBy": "Admin",
+    "date": "2025-11-30",
+    "id": "1764522076019"
+  }
+]

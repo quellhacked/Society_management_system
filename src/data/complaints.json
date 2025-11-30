@@ -1,0 +1,46 @@
+[
+    {
+        "id": "1",
+        "title": "Leaking Pipe in Bathroom",
+        "description": "Water is leaking from the ceiling in the master bathroom.",
+        "category": "Plumbing",
+        "status": "Pending",
+        "priority": "High",
+        "residentName": "John Doe",
+        "flat": "A-101",
+        "date": "2023-10-25"
+    },
+    {
+        "id": "2",
+        "title": "Street Light Not Working",
+        "description": "The street light near Block B entrance is flickering.",
+        "category": "Electrical",
+        "status": "Resolved",
+        "priority": "Medium",
+        "residentName": "Jane Smith",
+        "flat": "B-202",
+        "date": "2023-10-20"
+    },
+    {
+        "id": "3",
+        "title": "Garbage Not Collected",
+        "description": "Garbage bin in C block is overflowing.",
+        "category": "Housekeeping",
+        "status": "Pending",
+        "priority": "High",
+        "residentName": "Sneha Gupta",
+        "flat": "C-101",
+        "date": "2023-11-28"
+    },
+    {
+        "id": "4",
+        "title": "Lift Malfunction",
+        "description": "Lift in Block A is stuck on 2nd floor.",
+        "category": "Electrical",
+        "status": "In Progress",
+        "priority": "Critical",
+        "residentName": "Vikram Singh",
+        "flat": "A-205",
+        "date": "2023-11-29"
+    }
+]

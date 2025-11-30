@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "slotNumber": "A-1",
+    "type": "Car",
+    "status": "Occupied",
+    "flat": "102",
+    "vehicleNumber": null,
+    "vehicleModel": null
+  },
+  {
+    "id": "2",
+    "slotNumber": "A-2",
+    "type": "Car",
+    "status": "Occupied",
+    "flat": "A-102",
+    "vehicleNumber": "MH 02 HH 9876",
+    "vehicleModel": "Honda City"
+  },
+  {
+    "id": "3",
+    "slotNumber": "A-3",
+    "type": "Car",
+    "status": "Available",
+    "flat": null,
+    "vehicleNumber": null,
+    "vehicleModel": null
+  },
+  {
+    "id": "5",
+    "slotNumber": "B-2",
+    "type": "Bike",
+    "status": "Available",
+    "flat": null,
+    "vehicleNumber": null,
+    "vehicleModel": null
+  },
+  {
+    "id": "1764519188931",
+    "slotNumber": "B-5",
+    "type": "Bike",
+    "status": "Available",
+    "flat": null,
+    "vehicleNumber": null,
+    "vehicleModel": null
+  }
+]

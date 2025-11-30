@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1",
+        "name": "Otis Elevators",
+        "serviceType": "Lift Maintenance",
+        "contact": "9876543210",
+        "email": "support@otis.com",
+        "balance": 0
+    },
+    {
+        "id": "2",
+        "name": "Green Garden Services",
+        "serviceType": "Gardening",
+        "contact": "9123456780",
+        "email": "info@greengarden.com",
+        "balance": 500
+    }
+]

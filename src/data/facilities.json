@@ -1,0 +1,34 @@
+[
+    {
+        "id": "1",
+        "name": "Community Hall",
+        "description": "Spacious hall for parties, meetings, and events. Capacity: 200 people.",
+        "capacity": 200,
+        "pricePerHour": 1000,
+        "image": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+        "id": "2",
+        "name": "Swimming Pool",
+        "description": "Olympic size swimming pool with temperature control.",
+        "capacity": 50,
+        "pricePerHour": 200,
+        "image": "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+        "id": "3",
+        "name": "Tennis Court",
+        "description": "Professional synthetic tennis court with floodlights.",
+        "capacity": 4,
+        "pricePerHour": 500,
+        "image": "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+        "id": "4",
+        "name": "Clubhouse Gym",
+        "description": "Fully equipped gym with cardio and weight training sections.",
+        "capacity": 20,
+        "pricePerHour": 0,
+        "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800"
+    }
+]

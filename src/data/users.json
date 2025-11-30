@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "name": "Admin User",
+    "flat": "Office",
+    "phone": "+91 98765 00001",
+    "email": "admin@society.com",
+    "password": "password123",
+    "type": "Committee",
+    "role": "admin"
+  },
+  {
+    "id": "1764516226815",
+    "name": "Mithlesh Sharma",
+    "phone": "9820750006",
+    "flat": "A-102",
+    "email": "9820750006@society.com",
+    "password": "admin123",
+    "type": "Owner",
+    "role": "resident"
+  },
+  {
+    "id": "2",
+    "name": "Amit Patel",
+    "phone": "9876543210",
+    "flat": "B-304",
+    "email": "amit@society.com",
+    "password": "password",
+    "type": "Owner",
+    "role": "resident"
+  },
+  {
+    "id": "3",
+    "name": "Sneha Gupta",
+    "phone": "9876543211",
+    "flat": "C-101",
+    "email": "sneha@society.com",
+    "password": "password",
+    "type": "Tenant",
+    "role": "resident"
+  },
+  {
+    "id": "4",
+    "name": "Vikram Singh",
+    "phone": "9876543212",
+    "flat": "A-205",
+    "email": "vikram@society.com",
+    "password": "password",
+    "type": "Owner",
+    "role": "resident"
+  },
+  {
+    "id": "5",
+    "name": "Priya Reddy",
+    "phone": "9876543213",
+    "flat": "B-402",
+    "email": "priya@society.com",
+    "password": "password",
+    "type": "Tenant",
+    "role": "resident"
+  },
+  {
+    "name": "Rahul Sharma",
+    "email": "rahul@gmail.com",
+    "flat": "202",
+    "role": "staff",
+    "phone": "9326015168",
+    "type": "Staff",
+    "password": "ref74ges",
+    "id": "1764519744395"
+  }
+]
