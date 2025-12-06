@@ -87,7 +87,8 @@ const handler = NextAuth({
     },
     pages: {
         signIn: '/admin-login', // Default signin page, though we have custom ones
-    }
+    },
+    secret: process.env.NEXTAUTH_SECRET,
 });
 
 export { handler as GET, handler as POST };
