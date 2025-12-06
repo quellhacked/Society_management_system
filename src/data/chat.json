@@ -10,5 +10,12 @@
     "message": "hello everyone",
     "id": "1764522393857",
     "timestamp": "2025-11-30T17:06:33.857Z"
+  },
+  {
+    "authorName": "Admin",
+    "message": "hello guyzz",
+    "image": null,
+    "id": "1764597530282",
+    "timestamp": "2025-12-01T13:58:50.282Z"
   }
 ]

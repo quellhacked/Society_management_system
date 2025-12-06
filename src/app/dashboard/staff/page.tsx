@@ -41,11 +41,66 @@ export default function StaffPage() {
         member.flat.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    if (loading) return <div style={{ padding: '2rem' }}>Loading staff...</div>;
+    const [showAddModal, setShowAddModal] = useState(false);
+    const [newStaff, setNewStaff] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        role: 'staff',
+        flat: 'Office' // Default location for staff
+    });
+
+    const handleAddStaff = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
+        try {
+            const res = await fetch('/api/users', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newStaff)
+            });
+
+            if (res.ok) {
+                setShowAddModal(false);
+                setNewStaff({ name: '', email: '', phone: '', role: 'staff', flat: 'Office' });
+                fetchStaff(); // Refresh list
+                alert('Staff member added successfully! Credentials sent via email.');
+            } else {
+                const data = await res.json();
+                alert(data.error || 'Failed to add staff');
+            }
+        } catch (error) {
+            console.error('Error adding staff:', error);
+            alert('An error occurred');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    if (loading && !showAddModal) return <div style={{ padding: '2rem' }}>Loading staff...</div>;
 
     return (
         <div>
-            <h1 style={{ fontSize: '1.8rem', fontWeight: '700', color: '#1a2b4b', marginBottom: '2rem' }}>Staff Directory</h1>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+                <h1 style={{ fontSize: '1.8rem', fontWeight: '700', color: '#1a2b4b' }}>Staff Directory</h1>
+                <button
+                    onClick={() => setShowAddModal(true)}
+                    style={{
+                        background: '#1a2b4b',
+                        color: 'white',
+                        padding: '0.8rem 1.5rem',
+                        borderRadius: '12px',
+                        border: 'none',
+                        fontWeight: '600',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px'
+                    }}
+                >
+                    <User size={18} /> Add Staff
+                </button>
+            </div>
 
             {/* Search Bar */}
             <div style={{
@@ -125,6 +180,76 @@ export default function StaffPage() {
                     </tbody>
                 </table>
             </div>
+
+            {/* Add Staff Modal */}
+            {showAddModal && (
+                <div style={{
+                    position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+                    background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000
+                }}>
+                    <div style={{ background: 'white', padding: '2rem', borderRadius: '16px', width: '400px', maxWidth: '90%' }}>
+                        <h2 style={{ marginBottom: '1.5rem', color: '#1a2b4b' }}>Add New Staff</h2>
+                        <form onSubmit={handleAddStaff} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                            <input
+                                type="text"
+                                placeholder="Full Name"
+                                required
+                                value={newStaff.name}
+                                onChange={e => setNewStaff({ ...newStaff, name: e.target.value })}
+                                style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid #ddd' }}
+                            />
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                required
+                                value={newStaff.email}
+                                onChange={e => setNewStaff({ ...newStaff, email: e.target.value })}
+                                style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid #ddd' }}
+                            />
+                            <input
+                                type="tel"
+                                placeholder="Phone"
+                                required
+                                value={newStaff.phone}
+                                onChange={e => setNewStaff({ ...newStaff, phone: e.target.value })}
+                                style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid #ddd' }}
+                            />
+                            <select
+                                value={newStaff.role}
+                                onChange={e => setNewStaff({ ...newStaff, role: e.target.value })}
+                                style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid #ddd' }}
+                            >
+                                <option value="staff">General Staff</option>
+                                <option value="security">Security Guard</option>
+                                <option value="cleaner">Cleaner</option>
+                                <option value="accountant">Accountant</option>
+                            </select>
+                            <input
+                                type="text"
+                                placeholder="Post/Location (e.g. Gate 1)"
+                                value={newStaff.flat}
+                                onChange={e => setNewStaff({ ...newStaff, flat: e.target.value })}
+                                style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid #ddd' }}
+                            />
+                            <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+                                <button
+                                    type="button"
+                                    onClick={() => setShowAddModal(false)}
+                                    style={{ flex: 1, padding: '0.8rem', borderRadius: '8px', border: '1px solid #ddd', background: 'white', cursor: 'pointer' }}
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    type="submit"
+                                    style={{ flex: 1, padding: '0.8rem', borderRadius: '8px', border: 'none', background: '#1a2b4b', color: 'white', cursor: 'pointer' }}
+                                >
+                                    Add Staff
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

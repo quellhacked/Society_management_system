@@ -47,7 +47,7 @@
     "email": "vikram@society.com",
     "password": "password",
     "type": "Owner",
-    "role": "resident"
+    "role": "staff"
   },
   {
     "id": "5",

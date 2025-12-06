@@ -122,26 +122,47 @@ export default function Sidebar() {
                             </>
                         )}
 
-                        {(showAll || isAccountant) && (
+                        {(showAll || isAccountant || isStaff) && (
                             <>
-                                <Link href="/dashboard/accounting" style={{ textDecoration: 'none' }}>
-                                    <NavItem icon={<CreditCard size={20} />} label="Accounting" active={pathname === '/dashboard/accounting'} />
-                                </Link>
-                                <Link href="/dashboard/accounting/vendors" style={{ textDecoration: 'none' }}>
-                                    <NavItem icon={<Users size={20} />} label="Vendors" active={pathname === '/dashboard/accounting/vendors'} />
-                                </Link>
+                                {(showAll || isAccountant) && (
+                                    <>
+                                        <Link href="/dashboard/accounting" style={{ textDecoration: 'none' }}>
+                                            <NavItem icon={<CreditCard size={20} />} label="Accounting" active={pathname === '/dashboard/accounting'} />
+                                        </Link>
+                                        <Link href="/dashboard/accounting/vendors" style={{ textDecoration: 'none' }}>
+                                            <NavItem icon={<Users size={20} />} label="Vendors" active={pathname === '/dashboard/accounting/vendors'} />
+                                        </Link>
+                                    </>
+                                )}
+
                                 <Link href="/dashboard/maintenance" style={{ textDecoration: 'none' }}>
                                     <NavItem icon={<FileText size={20} />} label="Maintenance" active={pathname === '/dashboard/maintenance'} />
                                 </Link>
-                                <Link href="/dashboard/communication" style={{ textDecoration: 'none' }}>
-                                    <NavItem icon={<MessageSquare size={20} />} label="Communication" active={pathname === '/dashboard/communication'} />
-                                </Link>
-                                <Link href="/dashboard/documents" style={{ textDecoration: 'none' }}>
-                                    <NavItem icon={<FolderOpen size={20} />} label="Documents" active={pathname === '/dashboard/documents'} />
-                                </Link>
-                                <Link href="/dashboard/settings" style={{ textDecoration: 'none' }}>
-                                    <NavItem icon={<Settings size={20} />} label="Settings" active={pathname === '/dashboard/settings'} />
-                                </Link>
+
+                                {(showAll || isStaff) && (
+                                    <>
+                                        <Link href="/dashboard/visitors" style={{ textDecoration: 'none' }}>
+                                            <NavItem icon={<UserCheck size={20} />} label="Visitors" active={pathname === '/dashboard/visitors'} />
+                                        </Link>
+                                        <Link href="/dashboard/complaints" style={{ textDecoration: 'none' }}>
+                                            <NavItem icon={<AlertCircle size={20} />} label="Complaints" active={pathname === '/dashboard/complaints'} />
+                                        </Link>
+                                    </>
+                                )}
+
+                                {(showAll || isAccountant) && (
+                                    <>
+                                        <Link href="/dashboard/communication" style={{ textDecoration: 'none' }}>
+                                            <NavItem icon={<MessageSquare size={20} />} label="Communication" active={pathname === '/dashboard/communication'} />
+                                        </Link>
+                                        <Link href="/dashboard/documents" style={{ textDecoration: 'none' }}>
+                                            <NavItem icon={<FolderOpen size={20} />} label="Documents" active={pathname === '/dashboard/documents'} />
+                                        </Link>
+                                        <Link href="/dashboard/settings" style={{ textDecoration: 'none' }}>
+                                            <NavItem icon={<Settings size={20} />} label="Settings" active={pathname === '/dashboard/settings'} />
+                                        </Link>
+                                    </>
+                                )}
                             </>
                         )}
                     </>
