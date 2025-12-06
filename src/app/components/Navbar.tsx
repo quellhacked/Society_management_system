@@ -1,9 +1,12 @@
 "use client";
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
     const { data: session } = useSession();
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <nav style={{
@@ -13,6 +16,7 @@ export default function Navbar() {
             padding: '2rem 5%',
             maxWidth: '1440px',
             margin: '0 auto',
+            position: 'relative'
         }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 {/* Logo Icon */}
@@ -26,10 +30,11 @@ export default function Navbar() {
                     fontSize: '1.2rem',
                     color: '#1a2b4b'
                 }}>
-                    Your Logo
+                    SocietyPlus
                 </span>
             </div>
 
+            {/* Desktop Menu */}
             <div style={{
                 display: 'flex',
                 gap: '2rem',
@@ -63,7 +68,6 @@ export default function Navbar() {
                             <span style={{ color: '#1a2b4b' }}>{session.user?.name}</span>
                         </div>
 
-                        {/* Dropdown - Visible on hover (using CSS group-hover logic or state if preferred, but inline styles are tricky for hover. Using simple state approach is safer for React) */}
                         <button
                             onClick={() => signOut()}
                             style={{
@@ -85,43 +89,65 @@ export default function Navbar() {
                         <Link href="/admin-login" style={{
                             padding: '0.6rem 1.5rem',
                             border: '1px solid #1a2b4b',
-                            borderBottom: '4px solid #1a2b4b', // 3D thickness
                             borderRadius: '25px',
                             color: '#1a2b4b',
-                            transition: 'all 0.1s',
                             fontWeight: '700',
-                            transform: 'translateY(0)',
-                        }}
-                            onMouseDown={(e) => {
-                                e.currentTarget.style.transform = 'translateY(2px)';
-                                e.currentTarget.style.borderBottom = '2px solid #1a2b4b';
-                            }}
-                            onMouseUp={(e) => {
-                                e.currentTarget.style.transform = 'translateY(0)';
-                                e.currentTarget.style.borderBottom = '4px solid #1a2b4b';
-                            }}
-                        >Admin Login</Link>
+                        }}>Admin Login</Link>
                         <Link href="/resident-login" style={{
                             padding: '0.6rem 1.5rem',
                             background: 'var(--gradient-accent)',
                             color: 'white',
                             borderRadius: '25px',
-                            boxShadow: '0 4px 0 #00c6fb, 0 10px 10px rgba(0,0,0,0.1)', // 3D shadow
-                            transition: 'all 0.1s',
-                            transform: 'translateY(0)',
-                        }}
-                            onMouseDown={(e) => {
-                                e.currentTarget.style.transform = 'translateY(4px)';
-                                e.currentTarget.style.boxShadow = '0 0 0 #00c6fb, 0 0 0 rgba(0,0,0,0)';
-                            }}
-                            onMouseUp={(e) => {
-                                e.currentTarget.style.transform = 'translateY(0)';
-                                e.currentTarget.style.boxShadow = '0 4px 0 #00c6fb, 0 10px 10px rgba(0,0,0,0.1)';
-                            }}
-                        >Residental Login</Link>
+                            fontWeight: '700',
+                        }}>Resident Login</Link>
                     </>
                 )}
             </div>
+
+            {/* Mobile Toggle */}
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                style={{ display: 'none' }}
+                className="mobile-tbo-btn" // Hack: creating a reverse logic class in style tag or just inline conditional
+            >
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+            <style jsx>{`
+                @media (max-width: 768px) {
+                    .mobile-tbo-btn {
+                        display: block !important;
+                    }
+                }
+            `}</style>
+
+            {/* Mobile Menu Overlay */}
+            {isOpen && (
+                <div style={{
+                    position: 'absolute',
+                    top: '80px',
+                    left: 0,
+                    right: 0,
+                    background: 'white',
+                    padding: '2rem',
+                    boxShadow: '0 10px 40px rgba(0,0,0,0.1)',
+                    zIndex: 100,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '1.5rem',
+                    borderRadius: '0 0 16px 16px'
+                }}>
+                    <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
+                    <Link href="/about" onClick={() => setIsOpen(false)}>About Us</Link>
+                    <Link href="/services" onClick={() => setIsOpen(false)}>Services</Link>
+                    <hr style={{ border: 'none', borderTop: '1px solid #eee' }} />
+                    {!session && (
+                        <>
+                            <Link href="/admin-login" onClick={() => setIsOpen(false)}>Admin Login</Link>
+                            <Link href="/resident-login" onClick={() => setIsOpen(false)}>Resident Login</Link>
+                        </>
+                    )}
+                </div>
+            )}
         </nav>
     );
 }

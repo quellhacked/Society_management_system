@@ -33,3 +33,45 @@ button {
   background: none;
   font-family: inherit;
 }
+
+/* Responsive Utilities */
+@media (min-width: 768px) {
+  .sidebar {
+    transform: translateX(0) !important;
+    position: sticky !important;
+    box-shadow: none !important;
+  }
+
+  .dashboard-main {
+    margin-left: 250px !important;
+  }
+
+  .mobile-menu-btn {
+    display: none !important;
+  }
+
+  .hero-section {
+    flex-direction: row !important;
+    text-align: left !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .dashboard-main {
+    margin-left: 0 !important;
+  }
+
+  .hero-section {
+    flex-direction: column-reverse !important;
+    text-align: center !important;
+    padding-top: 2rem !important;
+  }
+
+  .hero-content {
+    align-items: center !important;
+  }
+
+  .desktop-menu {
+    display: none !important;
+  }
+}

@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Hero() {
     return (
-        <section style={{
+        <section className="hero-section" style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -11,7 +11,8 @@ export default function Hero() {
             margin: '0 auto',
             minHeight: '80vh',
             position: 'relative',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            gap: '2rem'
         }}>
             {/* Left Content */}
             <div style={{ flex: '1', maxWidth: '500px', zIndex: 2 }}>

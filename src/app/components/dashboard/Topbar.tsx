@@ -1,10 +1,10 @@
 "use client";
-import { Search, Bell, ChevronDown, User, Settings, LogOut } from 'lucide-react';
+import { Search, Bell, ChevronDown, User, Settings, LogOut, Menu } from 'lucide-react';
 import { useSession, signOut } from 'next-auth/react';
 import { useState } from 'react';
 import Link from 'next/link';
 
-export default function Topbar() {
+export default function Topbar({ onMenuClick }: { onMenuClick?: () => void }) {
     const { data: session } = useSession();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -19,6 +19,14 @@ export default function Topbar() {
             borderBottom: '1px solid #f0f0f0',
             position: 'relative'
         }}>
+            {/* Mobile Menu Button */}
+            <button
+                className="mobile-menu-btn"
+                onClick={onMenuClick}
+                style={{ marginRight: '1rem', display: 'flex', alignItems: 'center' }}
+            >
+                <Menu size={24} color="#1a2b4b" />
+            </button>
             {/* Search */}
             <div style={{
                 display: 'flex',
